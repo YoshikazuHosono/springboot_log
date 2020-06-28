@@ -20,6 +20,7 @@
         <file>${MY_LOG_DIR}logback-rolling-sample.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${MY_LOG_DIR}logback-rolling-sample-%d{yyyyMMdd_HHmmss}.log</fileNamePattern>
+            <maxHistory>3</maxHistory>
         </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
