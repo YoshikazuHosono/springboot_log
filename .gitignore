@@ -4,6 +4,7 @@ target/
 !**/src/main/**
 !**/src/test/**
 logs/
+logback-secret-setting.xml
 
 ### STS ###
 .apt_generated
