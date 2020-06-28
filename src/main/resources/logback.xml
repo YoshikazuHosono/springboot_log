@@ -6,14 +6,14 @@
 
     <appender name="STDOUT_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </layout>
     </appender>
 
     <appender name="STDOUT_FILE" class="ch.qos.logback.core.FileAppender">
         <file>${MY_LOG_DIR}logback-sample.log</file>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </layout>
     </appender>
 
@@ -24,7 +24,7 @@
             <maxHistory>3</maxHistory>
         </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </layout>
     </appender>
 
@@ -41,7 +41,7 @@
             <bufferSize>10</bufferSize>
         </cyclicBufferTracker>
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </layout>
     </appender>
 
