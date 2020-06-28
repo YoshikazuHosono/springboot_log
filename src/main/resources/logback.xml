@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.FileAppender">
+    <appender name="STDOUT_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="STDOUT_FILE" class="ch.qos.logback.core.FileAppender">
         <file>logback-sample.log</file>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
@@ -9,6 +15,7 @@
     </appender>
 
     <root level="DEBUG">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDOUT_CONSOLE"/>
+        <appender-ref ref="STDOUT_FILE"/>
     </root>
 </configuration>
