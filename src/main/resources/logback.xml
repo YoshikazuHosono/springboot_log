@@ -19,7 +19,7 @@
     <appender name="STDOUT_FILE_TIME_ROTATE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${MY_LOG_DIR}logback-rolling-sample.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${MY_LOG_DIR}logback-rolling-sample-%d{yyyyMMdd_HHmmss}.log</fileNamePattern>
+            <fileNamePattern>${MY_LOG_DIR}logback-rolling-sample-%d{yyyyMMdd_HHmmss}.zip</fileNamePattern>
             <maxHistory>3</maxHistory>
         </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
