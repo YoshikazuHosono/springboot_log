@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <property name="MY_LOG_DIR" value="./logs/" />
+
     <appender name="STDOUT_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
@@ -8,14 +10,23 @@
     </appender>
 
     <appender name="STDOUT_FILE" class="ch.qos.logback.core.FileAppender">
-        <file>logback-sample.log</file>
+        <file>${MY_LOG_DIR}logback-sample.log</file>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="STDOUT_FILE_TIME_ROTATE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MY_LOG_DIR}logback-rolling-sample.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${MY_LOG_DIR}logback-rolling-sample-%d{yyyyMMdd_HHmmss}.log</fileNamePattern>
+        </rollingPolicy>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger : %msg%n</pattern>
         </layout>
     </appender>
 
     <root level="DEBUG">
-        <appender-ref ref="STDOUT_CONSOLE"/>
-        <appender-ref ref="STDOUT_FILE"/>
+        <appender-ref ref="STDOUT_FILE_TIME_ROTATE"/>
     </root>
 </configuration>
