@@ -45,9 +45,23 @@
         </layout>
     </appender>
 
-    <root level="DEBUG">
-        <appender-ref ref="EMAIL"/>
-        <appender-ref ref="STDOUT_CONSOLE"/>
-        <appender-ref ref="STDOUT_FILE"/>
+    <appender name="STDOUT_FILE_TIME_ROTATE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${MY_LOG_DIR}logback-rolling-info-sample.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${MY_LOG_DIR}info/logback-rolling-info-sample-%d{yyyyMMdd_HHmmss}.zip</fileNamePattern>
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>${LOG_PATTERN}</pattern>
+        </layout>
+    </appender>
+
+    <root>
+        <appender-ref ref="STDOUT_FILE_TIME_ROTATE_INFO"/>
     </root>
 </configuration>
